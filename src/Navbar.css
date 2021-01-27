@@ -1,0 +1,52 @@
+nav {
+    position: relative;
+    width: 100vw;
+    height: 80px;
+    background-color: #332c3c;
+}
+
+.stopwatch {
+    position: absolute;
+    left: 35%;
+    display: inline-block;
+    height: 80px;
+    width: 100px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.stopwatch:hover {
+    background-color: #4f455c;
+    cursor: pointer;
+}
+
+.stopwatch:hover > .stopwatch-icon {
+    color: #f4f6f5;
+}
+
+.stopwatch-icon {
+    color: #925d4b;
+}
+
+.calendar {
+    position: absolute;
+    right: 35%;
+    display: inline-block;
+    height: 80px;
+    width: 100px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.calendar:hover {
+    background-color: #4f455c;
+    cursor: pointer;
+}
+
+.calendar:hover > .calendar-icon {
+    color: #f4f6f5;
+}
+
+.calendar-icon {
+    color: #925d4b;
+}
