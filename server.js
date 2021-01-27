@@ -39,15 +39,13 @@ app.post('/register', (req, res) => {
             )
                 .then((result) => {
                     req.session.userId = result.rows[0].id;
-                    res.json({ success: true });
-                    // db.createUsersCharacters(req.session.userId)
-                    //     .then(() => {
-                    //         res.json({ success: true });
-                    //     })
-                    //     .catch((err) => {
-                    //         console.log('error in register inside', err);
-                    //         res.json({ success: false });
-                    //     });
+                    db.createTimersTable(req.session.userId)
+                        .then(() => {
+                            res.json({ success: true });
+                        })
+                        .catch((error) => {
+                            console.log('error in createTimersTable', err);
+                        });
                 })
                 .catch((err) => {
                     console.log('error in register', err);
@@ -79,6 +77,38 @@ app.post('/login', (req, res) => {
             .catch((err) => {
                 console.log('error in getpasswordbyemail', err);
                 res.json({ success: false });
+            });
+    }
+});
+
+app.post('/customBooking', (req, res) => {
+    if (
+        !req.body.title ||
+        !req.body.time ||
+        !req.body.started_at ||
+        !req.body.finished_at
+    ) {
+        res.json({ success: false });
+    } else {
+        console.log(
+            req.body.title,
+            req.body.time,
+            req.body.started_at,
+            req.body.finished_at,
+            req.session.userId
+        );
+        db.updateTimersTable(
+            req.body.title,
+            req.body.time,
+            req.body.started_at,
+            req.body.finished_at,
+            req.session.userId
+        )
+            .then(() => {
+                res.json({ success: true });
+            })
+            .catch((error) => {
+                console.log('error in updateTimersTable', error);
             });
     }
 });

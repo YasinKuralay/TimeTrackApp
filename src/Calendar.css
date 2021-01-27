@@ -1,0 +1,32 @@
+.stopwatch-hider {
+    background-color: #f4f6f5;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+}
+
+.inputCard {
+    height: 120px;
+    width: 80vw;
+    background-color: #9a9b97;
+    position: absolute;
+    top: 45%;
+    left: 10vw;
+}
+
+input {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 240px;
+}
+
+.submit {
+    cursor: pointer;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}

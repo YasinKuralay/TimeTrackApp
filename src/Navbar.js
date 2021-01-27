@@ -8,6 +8,7 @@ export default function Navbar() {
         axios.get('/logout').then(() => {
             window.location.replace('/');
         });
+        window.location.replace('/');
     }
     return (
         <nav>

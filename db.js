@@ -21,3 +21,31 @@ module.exports.getPasswordByEmail = (email) => {
         [email]
     );
 };
+
+module.exports.createTimersTable = (userid) => {
+    return db.query(`CREATE TABLE user${userid}Timers(
+        id SERIAL PRIMARY KEY,
+        description TEXT,
+        start_at TIMESTAMP NOT NULL,
+        end_at TIMESTAMP NOT NULL,
+        how_long TIME NOT NULL
+    )`);
+};
+
+module.exports.updateTimersTable = (
+    title,
+    time,
+    started_at,
+    finished_at,
+    userid
+) => {
+    return db.query(
+        `INSERT INTO user${userid}Timers (description, how_long, start_at, end_at)
+        VALUES ($1, $2, $3, $4)`,
+        [title, time, started_at, finished_at]
+    );
+};
+
+module.exports.getTimersTable = (userid) => {
+    return db.query(`SELECT * FROM user${userid}Timers`);
+};
