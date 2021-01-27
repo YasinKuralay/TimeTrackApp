@@ -2,28 +2,6 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import './Calendar.css';
 
-// export default function Calendar() {
-//     useEffect(() => {
-//         axios
-//             .get('/stopwatch/calendar')
-//             .then((data) => {
-//                 console.log('data in the front end is: ', data);
-//                 // location.replace
-//             })
-//             .catch((err) => {
-//                 console.log('error in /stopwatch/calendar');
-//             });
-//     }, []);
-//     return (
-// <div>
-//     <div className='stopwatch-hider'></div>
-//     <div className='inputCard'>
-
-//     </div>
-// </div>
-//     );
-// }
-
 class Calendar extends Component {
     constructor(props) {
         super(props);
@@ -52,6 +30,19 @@ class Calendar extends Component {
                 }
             })
             .catch((err) => console.log(err));
+    }
+
+    getAllBookings() {
+        axios
+            .get('/getAllBookings')
+            .then(({ data }) => {
+                console.log('data in get all bookings is: ', data);
+                this.setState({ ['results']: data });
+                console.log('this.state.results is: ', this.state.results);
+            })
+            .catch((err) => {
+                console.log('error in get all bookings:', err);
+            });
     }
 
     render() {
@@ -92,6 +83,24 @@ class Calendar extends Component {
                         Submit
                     </div>
                 </div>
+                <div
+                    className='get-all-bookings'
+                    onClick={() => this.getAllBookings()}
+                >
+                    Get All Bookings
+                </div>
+                {this.state.results && (
+                    <div className='results-here'>
+                        {this.state.results.map((elem, idx) => {
+                            return (
+                                <div key={idx + 'result'}>
+                                    {elem.id} {elem.description} {elem.start_at}{' '}
+                                    {elem.end_at}
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
         );
     }

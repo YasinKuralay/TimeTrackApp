@@ -30,3 +30,25 @@ input {
     margin-right: auto;
     margin-left: auto;
 }
+
+.get-all-bookings {
+    cursor: pointer;
+    background-color: aquamarine;
+    width: 100px;
+    padding-top: 10px;
+    border-radius: 5px;
+    height: 60px;
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.results-here {
+    position: absolute;
+    top: 80vh;
+    height: 100px;
+    width: 80vw;
+    left: 10vw;
+    background-color: #9a9b97;
+}

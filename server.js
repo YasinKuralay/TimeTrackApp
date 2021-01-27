@@ -113,6 +113,18 @@ app.post('/customBooking', (req, res) => {
     }
 });
 
+app.get('/getAllBookings', (req, res) => {
+    db.getTimersTable(req.session.userId)
+        .then((data) => {
+            console.log('data in getallbookings is: ', data.rows);
+
+            res.json(data.rows);
+        })
+        .catch((err) => {
+            console.log('error in getallbookings', err);
+        });
+});
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

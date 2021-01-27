@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+## Functionality
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The app makes use of React with Express and PostgreSQL.
 
-## Available Scripts
+There is a login and registration form. Authentication is done with session cookies. The tracker works. Opening the calendar component does not pause the tracker, because the tracker is always present in that route (it disappears because the calendar component has a background with the same background as the app itself). Input for manual booking works but the UI/UX is practically non-existent. The user has to input in correct format. This can all be fixed easily with more time.
 
-In the project directory, you can run:
+Geting all bookings works, but it is a SELECT \* statement without pagination. Adding this would be easy aswell, the initial 'get bookings' would only return 30 results, and pressing on page 2 or next page would get the next 30, etc.
 
-### `npm start`
+There is no booking for the timer itself right now, but the db command for adding it is there, all there is needed is to collect the current info of the timer and creating a axios.post request to the corresponding, existing updateTable route in the server.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Database
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The app makes use of PostgreSQL. Please create a db called timetrackerapp to use the application, and run the command in timetrackerapp.sql. This creates the initial needed table, all other tables are created as the user registers.
 
-### `npm test`
+The app makes use of a module called spicedPg for connecting the db to the server, this was the module used in our bootcamp at spiced.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Errors
 
-### `npm run build`
+I had trouble with proxy errors. The app might be filled with other errors aswell. Chrome seems to be the most stable at this time, with firefox being the most unstable.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### The Rest
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The rest of the documentation is going to be added after this commit.
