@@ -1,0 +1,55 @@
+.stop-watch-card {
+    box-shadow: 3px 3px 20px black;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 390px;
+    height: 500px;
+    background-color: #f0bd3d;
+    z-index: -1;
+}
+
+.card-title {
+    background-color: #f0bd3d;
+    position: relative;
+    width: 250px;
+    top: 40px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+}
+
+.tracker-time-value {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.start-time {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 5px 5px 10px black;
+    background-color: #332c3c;
+    color: #f4f6f5;
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.stop-time {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 5px 5px 10px black;
+    background-color: #332c3c;
+    color: #f4f6f5;
+    position: absolute;
+    top: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+}
